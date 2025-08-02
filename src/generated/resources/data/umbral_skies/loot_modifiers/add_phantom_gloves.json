@@ -3,16 +3,13 @@
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",
-      "loot_table_id": "twilightforest:chests/stronghold_boss"
+      "loot_table_id": "twilightforest:entities/knight_phantom_defeated"
     }
   ],
   "stacks": [
     {
-      "Count": 1,
-      "id": "umbral_skies:phantom_gloves",
-      "tag": {
-        "Damage": 0
-      }
+      "count": 1,
+      "id": "umbral_skies:phantom_gloves"
     }
   ]
 }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "aether:golden_oak_log"
+  },
+  "result": {
+    "count": 1,
+    "id": "umbral_skies:hollow_golden_oak_log"
+  }
+}

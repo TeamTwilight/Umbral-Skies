@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "aether:iron_gloves"
+    },
+    {
+      "tag": "twilightforest:fiery_vial"
+    },
+    {
+      "tag": "twilightforest:fiery_vial"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "umbral_skies:fiery_gloves"
+  }
+}

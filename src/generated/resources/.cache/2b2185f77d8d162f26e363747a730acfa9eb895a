@@ -1,4 +1,5 @@
-// 1.20.4	2024-07-04T16:01:16.981305	Tags for minecraft:item mod id umbral_skies
-aa0a181a7a8f5b838da93fa1ddf516a1c05932d6 data/aether/tags/items/accessories_gloves.json
-b26c212992fe12d49b761f90582f15c8e9c27353 data/curios/tags/items/head.json
-aa0a181a7a8f5b838da93fa1ddf516a1c05932d6 data/minecraft/tags/items/trimmable_armor.json
+// 1.21.1	2025-07-31T20:30:36.843453507	Tags for minecraft:item mod id umbral_skies
+aa0a181a7a8f5b838da93fa1ddf516a1c05932d6 data/aether/tags/item/accessories_gloves.json
+b26c212992fe12d49b761f90582f15c8e9c27353 data/curios/tags/item/head.json
+2921a03723ef2313907bfc6c9ce60a5988ab7522 data/minecraft/tags/item/dyeable.json
+aa0a181a7a8f5b838da93fa1ddf516a1c05932d6 data/minecraft/tags/item/trimmable_armor.json

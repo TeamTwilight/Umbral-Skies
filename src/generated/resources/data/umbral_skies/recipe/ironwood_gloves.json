@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "twilightforest:ironwood_ingot"
+    }
+  },
+  "pattern": [
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "umbral_skies:ironwood_gloves"
+  }
+}

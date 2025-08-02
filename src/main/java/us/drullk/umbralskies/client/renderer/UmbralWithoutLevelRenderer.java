@@ -17,7 +17,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import twilightforest.TwilightForestMod;
-import twilightforest.client.TFClientEvents;
+import twilightforest.client.event.ClientEvents;
 import twilightforest.config.TFConfig;
 import us.drullk.umbralskies.UmbralSkies;
 import us.drullk.umbralskies.item.UmbralItems;
@@ -29,9 +29,9 @@ public class UmbralWithoutLevelRenderer extends BlockEntityWithoutLevelRenderer 
     private final ValkyrieQueenTrophyRenderer valkyrieQueenTrophyRenderer;
     private final SunSpiritTrophyRenderer sunSpiritTrophyRenderer;
 
-    private final ModelResourceLocation bronzeBackplate = new ModelResourceLocation(UmbralSkies.prefix("trophy_bronze"), "inventory");
-    private final ModelResourceLocation silverBackplate = new ModelResourceLocation(TwilightForestMod.prefix("trophy_minor"), "inventory");
-    private final ModelResourceLocation goldBackplate = new ModelResourceLocation(TwilightForestMod.prefix("trophy"), "inventory");
+    private final ModelResourceLocation bronzeBackplate = ModelResourceLocation.standalone(UmbralSkies.prefix("item/trophy_bronze"));
+    private final ModelResourceLocation silverBackplate = ModelResourceLocation.standalone(TwilightForestMod.prefix("item/trophy_minor"));
+    private final ModelResourceLocation goldBackplate = ModelResourceLocation.standalone(TwilightForestMod.prefix("item/trophy"));
 
     private static final Supplier<UmbralWithoutLevelRenderer> INSTANCE = Suppliers.memoize(() -> new UmbralWithoutLevelRenderer(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels()));
 
@@ -53,11 +53,11 @@ public class UmbralWithoutLevelRenderer extends BlockEntityWithoutLevelRenderer 
     @Override
     public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         if (stack.is(UmbralItems.SLIDER_TROPHY.get())) {
-            this.render(stack, context, poseStack, bufferSource, packedLight, packedOverlay, this.sliderTrophyRenderer, this.bronzeBackplate);
+            render(stack, context, poseStack, bufferSource, packedLight, packedOverlay, this.sliderTrophyRenderer, this.bronzeBackplate);
         } else if (stack.is(UmbralItems.VALKYRIE_QUEEN_TROPHY.get())) {
-            this.render(stack, context, poseStack, bufferSource, packedLight, packedOverlay, this.valkyrieQueenTrophyRenderer, this.silverBackplate);
+            render(stack, context, poseStack, bufferSource, packedLight, packedOverlay, this.valkyrieQueenTrophyRenderer, this.silverBackplate);
         } else if (stack.is(UmbralItems.SUN_SPIRIT_TROPHY.get())) {
-            this.render(stack, context, poseStack, bufferSource, packedLight, packedOverlay, this.sunSpiritTrophyRenderer, this.goldBackplate);
+            render(stack, context, poseStack, bufferSource, packedLight, packedOverlay, this.sunSpiritTrophyRenderer, this.goldBackplate);
         }
     }
 
@@ -80,11 +80,11 @@ public class UmbralWithoutLevelRenderer extends BlockEntityWithoutLevelRenderer 
 
             poseStack.translate(0.5f, 0.5f, 0);
             poseStack.mulPose(Axis.XP.rotationDegrees(30));
-            poseStack.mulPose(Axis.YN.rotationDegrees(TFConfig.rotateTrophyHeadsGui && !Minecraft.getInstance().isPaused() ? TFClientEvents.rotationTicker : -45));
+            poseStack.mulPose(Axis.YN.rotationDegrees(TFConfig.rotateTrophyHeadsGui && !Minecraft.getInstance().isPaused() ? ClientEvents.time % 360 : -45));
             poseStack.translate(-0.5f, -0.25f, -0.5f);
         }
 
-        withoutEntity.render(poseStack, bufferSource, packedLight, packedOverlay);
+        withoutEntity.render(poseStack, bufferSource, packedLight, packedOverlay, false);
 
         poseStack.popPose();
     }

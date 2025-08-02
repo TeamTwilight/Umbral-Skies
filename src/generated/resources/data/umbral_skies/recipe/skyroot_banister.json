@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "_": {
+      "item": "aether:skyroot_slab"
+    },
+    "|": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "___",
+    "| |"
+  ],
+  "result": {
+    "count": 1,
+    "id": "umbral_skies:skyroot_banister"
+  }
+}

@@ -1,0 +1,41 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+issueTrackerURL = "https://github.com/TeamTwilight/Umbral-Skies/issues"
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "umbral_skies"
+version = "${file.jarVersion}"
+displayName = "Umbral Skies"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/umbral-skies"
+logoFile = "pack.png"
+authors = "Drullkus"
+description = 'Find Twilight Forest features in The Aether!'
+
+[[dependencies.umbral_skies]]
+    modId = "neoforge"
+    type = "required"
+    versionRange = "[21.1,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.umbral_skies]]
+    modId = "minecraft"
+    type = "required"
+    versionRange = "[1.21.1]"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.umbral_skies]]
+    modId="twilightforest"
+    type="required"
+    versionRange="[4.7,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.umbral_skies]]
+    modId="aether"
+    type="required"
+    versionRange="[1.5.8]"
+    ordering="NONE"
+    side="BOTH"

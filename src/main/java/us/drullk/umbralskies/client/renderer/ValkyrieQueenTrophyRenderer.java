@@ -13,13 +13,14 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import us.drullk.umbralskies.block.AbstractAetherTrophyBlock;
 import us.drullk.umbralskies.block.entity.AetherTrophyEntity;
 
 public class ValkyrieQueenTrophyRenderer implements BlockEntityRenderer<AetherTrophyEntity>, RenderWithoutEntity {
     private final ValkyrieModel<ValkyrieQueen> valkyrieQueenModel;
     private final RenderType queenRendertype;
 
-    private static final float SCALE = 21.25f/16f;
+    private static final float SCALE = 21.25f / 16f;
 
     public ValkyrieQueenTrophyRenderer(BlockEntityRendererProvider.Context context) {
         this(new ValkyrieModel<>(context.bakeLayer(AetherModelLayers.VALKYRIE_QUEEN)));
@@ -44,21 +45,21 @@ public class ValkyrieQueenTrophyRenderer implements BlockEntityRenderer<AetherTr
         this.valkyrieQueenModel.leftSideSkirt.visible = false;
         this.valkyrieQueenModel.rightSideSkirt.visible = false;
 
-        this.queenRendertype = this.valkyrieQueenModel.renderType(new ResourceLocation(Aether.MODID, "textures/entity/mobs/valkyrie_queen/valkyrie_queen.png"));
+        this.queenRendertype = this.valkyrieQueenModel.renderType(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/valkyrie_queen/valkyrie_queen.png"));
     }
 
     @Override
     public void render(AetherTrophyEntity trophy, float partial, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int overlay) {
-        this.render(trophy, poseStack, bufferSource, packedLight, overlay);
+        this.render(trophy, poseStack, bufferSource, packedLight, overlay, trophy.getBlockState().getOptionalValue(AbstractAetherTrophyBlock.POWERED).orElse(false));
     }
 
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int overlay) {
+    public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int overlay, boolean powered) {
         poseStack.pushPose();
         poseStack.translate(0.5f, 1, 0.5f);
         poseStack.scale(SCALE, SCALE, SCALE);
         poseStack.mulPose(Axis.XP.rotation(Mth.PI));
-        this.valkyrieQueenModel.renderToBuffer(poseStack, bufferSource.getBuffer(this.queenRendertype), packedLight, overlay, 1f, 1f, 1f, 1f);
+        this.valkyrieQueenModel.renderToBuffer(poseStack, bufferSource.getBuffer(this.queenRendertype), packedLight, overlay);
         poseStack.popPose();
     }
 }

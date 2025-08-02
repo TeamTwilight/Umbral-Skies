@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "aether:skyroot_log"
-  },
-  "result": "umbral_skies:hollow_skyroot_log"
-}

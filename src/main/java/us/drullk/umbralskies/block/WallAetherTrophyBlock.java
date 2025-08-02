@@ -2,6 +2,7 @@ package us.drullk.umbralskies.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 import us.drullk.umbralskies.block.entity.AetherTrophyEntity;
 
 import java.util.function.Supplier;
@@ -23,18 +25,20 @@ public class WallAetherTrophyBlock extends AbstractAetherTrophyBlock {
     protected static final VoxelShape EAST = Block.box(0.0D, 4.0D, 4.0D, 8.0D, 12.0D, 12.0D);
     protected static final VoxelShape WEST = Block.box(8.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
 
-    public WallAetherTrophyBlock(Properties properties, Supplier<BlockEntityType<AetherTrophyEntity>> blockEntityType) {
-        super(properties, blockEntityType);
+    public WallAetherTrophyBlock(Properties properties, @Nullable Supplier<SoundEvent> clickSound, Supplier<BlockEntityType<AetherTrophyEntity>> blockEntityType) {
+        super(properties, clickSound, blockEntityType);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
     }
 
+    @Nullable
+    @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        BlockState blockstate = this.defaultBlockState();
+        BlockState blockstate = super.getStateForPlacement(context);
         BlockGetter blockgetter = context.getLevel();
         BlockPos blockpos = context.getClickedPos();
         Direction[] nearestOrderedDirections = context.getNearestLookingDirections();
 
-        for(Direction direction : nearestOrderedDirections) {
+        for (Direction direction : nearestOrderedDirections) {
             if (direction.getAxis().isHorizontal()) {
                 blockstate = blockstate.setValue(FACING, direction.getOpposite());
 
@@ -47,18 +51,13 @@ public class WallAetherTrophyBlock extends AbstractAetherTrophyBlock {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter p_60556_, BlockPos p_60557_, CollisionContext p_60558_) {
+    public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         return switch (state.getValue(FACING)) {
             case SOUTH -> SOUTH;
             case EAST -> EAST;
             case WEST -> WEST;
             default -> NORTH;
         };
-    }
-
-    @Override
-    public VoxelShape getOcclusionShape(BlockState p_60578_, BlockGetter p_60579_, BlockPos p_60580_) {
-        return Shapes.empty();
     }
 
     @Override
@@ -73,8 +72,7 @@ public class WallAetherTrophyBlock extends AbstractAetherTrophyBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
-        super.createBlockStateDefinition(builder);
+        super.createBlockStateDefinition(builder.add(FACING));
     }
 
     @Override

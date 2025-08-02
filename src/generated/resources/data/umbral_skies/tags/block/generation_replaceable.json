@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#minecraft:sculk_replaceable_world_gen",
+    "#c:stones",
+    "#minecraft:dirt",
+    "#twilightforest:worldgen_replaceables"
+  ]
+}

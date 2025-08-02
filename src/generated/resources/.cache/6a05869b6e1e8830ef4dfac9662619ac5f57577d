@@ -1,8 +1,8 @@
-// 1.20.4	2024-07-04T16:24:47.79003	Tags for minecraft:block mod id umbral_skies
-336a5cf28e3a807615f25965e0a90c7bf33dd3ac data/forge/tags/blocks/ore_bearing_ground/holystone.json
-47071da7c265ffd70c41ff2b88a06b237cd784f9 data/forge/tags/blocks/ores_in_ground/holystone.json
-8d6ca1fc96a14d1293b48785344fb828603ec80c data/twilightforest/tags/blocks/banisters.json
-2481d72133966b20400c9e64a8506d2ef83c3de2 data/twilightforest/tags/blocks/hollow_logs_climbable.json
-7f3b5b3322df7a9bb8efb340ba7ece10877de15b data/twilightforest/tags/blocks/hollow_logs_horizontal.json
-38f8c3f18042f8e8343383c37f3163eac0d8b8c2 data/twilightforest/tags/blocks/hollow_logs_vertical.json
-b1cfdea0ca5619e3cb66f987ceda97c5e287a667 data/umbral_skies/tags/blocks/generation_replaceable.json
+// 1.21.1	2025-07-31T20:30:36.845477127	Tags for minecraft:block mod id umbral_skies
+336a5cf28e3a807615f25965e0a90c7bf33dd3ac data/c/tags/block/ore_bearing_ground/holystone.json
+47071da7c265ffd70c41ff2b88a06b237cd784f9 data/c/tags/block/ores_in_ground/holystone.json
+8d6ca1fc96a14d1293b48785344fb828603ec80c data/twilightforest/tags/block/banisters.json
+2481d72133966b20400c9e64a8506d2ef83c3de2 data/twilightforest/tags/block/hollow_logs_climbable.json
+7f3b5b3322df7a9bb8efb340ba7ece10877de15b data/twilightforest/tags/block/hollow_logs_horizontal.json
+38f8c3f18042f8e8343383c37f3163eac0d8b8c2 data/twilightforest/tags/block/hollow_logs_vertical.json
+92453bbf7c00235e33459befbfe5c728d70316d8 data/umbral_skies/tags/block/generation_replaceable.json

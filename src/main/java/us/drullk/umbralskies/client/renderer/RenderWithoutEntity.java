@@ -10,12 +10,7 @@ import us.drullk.umbralskies.block.WallAetherTrophyBlock;
 import us.drullk.umbralskies.block.entity.AetherTrophyEntity;
 
 public interface RenderWithoutEntity {
-    default void render(AetherTrophyEntity trophy, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int overlay) {
-        if (trophy == null) {
-            this.render(poseStack, bufferSource, packedLight, overlay);
-            return;
-        }
-
+    default void render(AetherTrophyEntity trophy, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int overlay, boolean powered) {
         BlockState state = trophy.getBlockState();
         boolean isWall = state.getBlock() instanceof WallAetherTrophyBlock;
         float rotation = RotationSegment.convertToDegrees(isWall ? RotationSegment.convertToSegment(state.getValue(WallAetherTrophyBlock.FACING).getOpposite()) : state.getValue(FloorAetherTrophyBlock.ROTATION));
@@ -28,10 +23,10 @@ public interface RenderWithoutEntity {
 
         if (isWall) poseStack.translate(0, 0.25, -0.25);
 
-        this.render(poseStack, bufferSource, packedLight, overlay);
+        this.render(poseStack, bufferSource, packedLight, overlay, powered);
 
         poseStack.popPose();
     }
 
-    void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int overlay);
+    void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int overlay, boolean powered);
 }
