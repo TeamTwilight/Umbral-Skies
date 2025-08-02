@@ -19,6 +19,7 @@ import us.drullk.umbralskies.block.entity.AetherTrophyEntity;
 public class SliderTrophyRenderer implements BlockEntityRenderer<AetherTrophyEntity>, RenderWithoutEntity {
     private final SliderModel sliderModel;
     private final RenderType sliderRendertype;
+    private final RenderType enragedSliderRendertype;
     private final RenderType emissiveRendertype;
     private final RenderType enragedEmissiveRendertype;
 
@@ -33,6 +34,7 @@ public class SliderTrophyRenderer implements BlockEntityRenderer<AetherTrophyEnt
     public SliderTrophyRenderer(SliderModel sliderModel) {
         this.sliderModel = sliderModel;
         this.sliderRendertype = this.sliderModel.renderType(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_awake.png"));
+        this.enragedSliderRendertype = this.sliderModel.renderType(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_awake_critical.png"));
         this.emissiveRendertype = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_awake_glow.png"));
         this.enragedEmissiveRendertype = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_awake_critical_glow.png"));
     }
@@ -48,7 +50,7 @@ public class SliderTrophyRenderer implements BlockEntityRenderer<AetherTrophyEnt
         poseStack.translate(0.5f, 0.375f, 0.5f);
         poseStack.scale(0.25f, 0.25f, 0.25f);
         poseStack.mulPose(Axis.XP.rotation(Mth.PI));
-        this.sliderModel.renderToBuffer(poseStack, bufferSource.getBuffer(this.sliderRendertype), packedLight, overlay);
+        this.sliderModel.renderToBuffer(poseStack, bufferSource.getBuffer(powered ? this.enragedSliderRendertype : this.sliderRendertype), packedLight, overlay);
         poseStack.pushPose();
         poseStack.scale(1.01f, 1.01f, 1.01f);
         this.sliderModel.renderToBuffer(poseStack, bufferSource.getBuffer(powered ? this.enragedEmissiveRendertype : this.emissiveRendertype), LightTexture.FULL_BRIGHT, overlay);

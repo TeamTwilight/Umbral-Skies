@@ -83,12 +83,5 @@ public class UmbralClient {
 		private static boolean stackIsTrophy(ItemStack stack) {
 			return stack.getItem() instanceof AetherTrophyItem;
 		}
-
-		//FIXME HOW THE FUCK DOES ACCESSORIES WORK I HATE THIS
-//        private static boolean isWearingTrophyCurio(RenderLivingEvent<?, ?> event) {
-//            @SuppressWarnings({"UnstableApiUsage", "removal"})
-//            Optional<SlotResult> slot = CuriosApi.getCuriosHelper().findFirstCurio(event.getEntity(), Events::stackIsTrophy);
-//            return slot.isPresent() && slot.get().slotContext() != null && slot.get().slotContext().visible();
-//        }
 	}
 }
