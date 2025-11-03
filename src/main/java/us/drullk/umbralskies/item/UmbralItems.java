@@ -2,6 +2,7 @@ package us.drullk.umbralskies.item;
 
 import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -15,14 +16,14 @@ import us.drullk.umbralskies.block.UmbralBlocks;
 public class UmbralItems {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, UmbralSkies.MODID);
 
-	public static final DeferredHolder<Item, GlovesItem> NAGA_GLOVES = ITEMS.register("naga_gloves", () -> new UmbralGloves(TFArmorMaterials.NAGA, 0.25, "naga", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
-	public static final DeferredHolder<Item, GlovesItem> IRONWOOD_GLOVES = ITEMS.register("ironwood_gloves", () -> new UmbralGloves(TFArmorMaterials.IRONWOOD, 0.5, "ironwood", new Item.Properties().stacksTo(1)));
-	public static final DeferredHolder<Item, GlovesItem> FIERY_GLOVES = ITEMS.register("fiery_gloves", () -> new UmbralGloves(TFArmorMaterials.FIERY, 1, "fiery", new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.UNCOMMON)));
-	public static final DeferredHolder<Item, GlovesItem> STEELEAF_GLOVES = ITEMS.register("steeleaf_gloves", () -> new UmbralGloves(TFArmorMaterials.STEELEAF, 0.75, "steeleaf", new Item.Properties().stacksTo(1)));
-	public static final DeferredHolder<Item, GlovesItem> KNIGHTMETAL_GLOVES = ITEMS.register("knightmetal_gloves", () -> new UmbralGloves(TFArmorMaterials.KNIGHTMETAL, 1, "knightmetal", new Item.Properties().stacksTo(1)));
-	public static final DeferredHolder<Item, GlovesItem> PHANTOM_GLOVES = ITEMS.register("phantom_gloves", () -> new PhantomGloves(TFArmorMaterials.PHANTOM, 1, "phantom", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
-	public static final DeferredHolder<Item, GlovesItem> ARCTIC_GLOVES = ITEMS.register("arctic_gloves", () -> new UmbralGloves(TFArmorMaterials.ARCTIC, 0.25, "arctic", new Item.Properties().stacksTo(1)));
-	public static final DeferredHolder<Item, GlovesItem> YETI_GLOVES = ITEMS.register("yeti_gloves", () -> new UmbralGloves(TFArmorMaterials.YETI, 0.75, "yeti", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+	public static final DeferredHolder<Item, GlovesItem> NAGA_GLOVES = ITEMS.register("naga_gloves", () -> new UmbralGloves(TFArmorMaterials.NAGA, 0.25, "naga", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).durability(ArmorItem.Type.BOOTS.getDurability(21))));
+	public static final DeferredHolder<Item, GlovesItem> IRONWOOD_GLOVES = ITEMS.register("ironwood_gloves", () -> new UmbralGloves(TFArmorMaterials.IRONWOOD, 0.5, "ironwood", new Item.Properties().stacksTo(1).durability(ArmorItem.Type.BOOTS.getDurability(20))));
+	public static final DeferredHolder<Item, GlovesItem> FIERY_GLOVES = ITEMS.register("fiery_gloves", () -> new UmbralGloves(TFArmorMaterials.FIERY, 1, "fiery", new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.UNCOMMON).durability(ArmorItem.Type.BOOTS.getDurability(25))));
+	public static final DeferredHolder<Item, GlovesItem> STEELEAF_GLOVES = ITEMS.register("steeleaf_gloves", () -> new UmbralGloves(TFArmorMaterials.STEELEAF, 0.75, "steeleaf", new Item.Properties().stacksTo(1).durability(ArmorItem.Type.BOOTS.getDurability(10))));
+	public static final DeferredHolder<Item, GlovesItem> KNIGHTMETAL_GLOVES = ITEMS.register("knightmetal_gloves", () -> new UmbralGloves(TFArmorMaterials.KNIGHTMETAL, 1, "knightmetal", new Item.Properties().stacksTo(1).durability(ArmorItem.Type.BOOTS.getDurability(20))));
+	public static final DeferredHolder<Item, GlovesItem> PHANTOM_GLOVES = ITEMS.register("phantom_gloves", () -> new PhantomGloves(TFArmorMaterials.PHANTOM, 1, "phantom", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).durability(ArmorItem.Type.BOOTS.getDurability(30))));
+	public static final DeferredHolder<Item, GlovesItem> ARCTIC_GLOVES = ITEMS.register("arctic_gloves", () -> new UmbralGloves(TFArmorMaterials.ARCTIC, 0.25, "arctic", new Item.Properties().stacksTo(1).durability(ArmorItem.Type.BOOTS.getDurability(10))));
+	public static final DeferredHolder<Item, GlovesItem> YETI_GLOVES = ITEMS.register("yeti_gloves", () -> new UmbralGloves(TFArmorMaterials.YETI, 0.75, "yeti", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).durability(ArmorItem.Type.BOOTS.getDurability(20))));
 
 	public static final DeferredHolder<Item, BlockItem> SKYROOT_BANISTER = ITEMS.register("skyroot_banister", () -> new BlockItem(UmbralBlocks.SKYROOT_BANISTER.get(), new Item.Properties()));
 	public static final DeferredHolder<Item, HollowLogItem> HOLLOW_SKYROOT_LOG = ITEMS.register("hollow_skyroot_log", () -> new HollowLogItem(UmbralBlocks.HOLLOW_SKYROOT_LOG_HORIZONTAL, UmbralBlocks.HOLLOW_SKYROOT_LOG_VERTICAL, UmbralBlocks.HOLLOW_SKYROOT_LOG_CLIMBABLE, new Item.Properties()));
