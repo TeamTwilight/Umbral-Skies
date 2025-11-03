@@ -1,5 +1,6 @@
 package us.drullk.umbralskies;
 
+import com.google.common.base.Suppliers;
 import io.wispforest.accessories.api.AccessoriesCapability;
 import io.wispforest.accessories.api.AccessoriesContainer;
 import io.wispforest.accessories.endec.NbtMapCarrier;
@@ -20,10 +21,22 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Supplier;
 
 public class AccessoriesCompat {
 	public static final String ACCESSORIES = "UmbralSkiesCharmAccessories";
 	public static String FIND_CLASS = "io.wispforest.accessories.impl.AccessoriesHolderImpl$EntityAttribute";
+
+	public static Supplier<Constructor<?>> ENTITY_ATTRIBUTE_CONSTRUCTOR = Suppliers.memoize(() -> {
+		try {
+			Constructor<?> constructor = Class.forName(FIND_CLASS).getDeclaredConstructor(LivingEntity.class);
+			constructor.setAccessible(true);
+			return constructor;
+		} catch (NoSuchMethodException | ClassNotFoundException e) {
+			UmbralSkies.LOGGER.error("Errored trying to instantiate {}", FIND_CLASS, e);
+			throw new RuntimeException(e);
+		}
+	});
 
 	public static void onCharmKeeping(Player player) {
 		if (!(AccessoriesCapability.get(player).getHolder() instanceof AccessoriesHolderImpl accessoriesHolder))
@@ -100,10 +113,8 @@ public class AccessoriesCompat {
 
 	private static SerializationAttribute.Instance nastyReflection(LivingEntity player) {
 		try {
-			Constructor<?> constructor = Class.forName(FIND_CLASS).getDeclaredConstructor(LivingEntity.class);
-			constructor.setAccessible(true);
-			return (SerializationAttribute.Instance) constructor.newInstance(player);
-		} catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+			return (SerializationAttribute.Instance) ENTITY_ATTRIBUTE_CONSTRUCTOR.get().newInstance(player);
+		} catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
 			UmbralSkies.LOGGER.error("Error while trying to instantiate {}", FIND_CLASS, e);
 			throw new RuntimeException(e);
 		}
