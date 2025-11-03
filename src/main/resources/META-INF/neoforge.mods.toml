@@ -4,13 +4,13 @@ issueTrackerURL = "https://github.com/TeamTwilight/Umbral-Skies/issues"
 license = "All Rights Reserved"
 
 [[mods]]
-modId = "umbral_skies"
-version = "${file.jarVersion}"
-displayName = "Umbral Skies"
-displayURL = "https://www.curseforge.com/minecraft/mc-mods/umbral-skies"
-logoFile = "pack.png"
-authors = "Drullkus"
-description = 'Find Twilight Forest features in The Aether!'
+    modId = "umbral_skies"
+    version = "${file.jarVersion}"
+    displayName = "Umbral Skies"
+    displayURL = "https://www.curseforge.com/minecraft/mc-mods/umbral-skies"
+    logoFile = "pack.png"
+    authors = "Drullkus"
+    description = 'Find Twilight Forest features in The Aether!'
 
 [[dependencies.umbral_skies]]
     modId = "neoforge"
@@ -39,3 +39,6 @@ description = 'Find Twilight Forest features in The Aether!'
     versionRange="[1.5.8,)"
     ordering="NONE"
     side="BOTH"
+
+[[mixins]]
+    config="umbral_skies.mixins.json"

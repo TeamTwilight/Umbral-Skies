@@ -5,6 +5,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.data.UmbralData;
 import us.drullk.umbralskies.item.UmbralItems;
@@ -12,6 +14,7 @@ import us.drullk.umbralskies.loottables.UmbralLootModifiers;
 
 @Mod(UmbralSkies.MODID)
 public class UmbralSkies {
+	public static final Logger LOGGER = LoggerFactory.getLogger(UmbralSkies.class);
 
 	public static final String MODID = "umbral_skies";
 

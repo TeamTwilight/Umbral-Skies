@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "us.drullk.umbralskies.mixin",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "CharmEventsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

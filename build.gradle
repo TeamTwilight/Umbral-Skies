@@ -114,6 +114,8 @@ dependencies {
     implementation "com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}"
     implementation "io.wispforest:accessories-neoforge:${project.accessories_version}+${project.minecraft_version}"
     compileOnly "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
+	implementation("io.wispforest:endec:${endec_version}")
+	implementation("io.wispforest:owo-lib-neoforge:${owo_version}")
 
 }
 
