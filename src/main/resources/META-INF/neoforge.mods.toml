@@ -36,6 +36,6 @@ description = 'Find Twilight Forest features in The Aether!'
 [[dependencies.umbral_skies]]
     modId="aether"
     type="required"
-    versionRange="[1.5.8]"
+    versionRange="[1.5.8,)"
     ordering="NONE"
     side="BOTH"
