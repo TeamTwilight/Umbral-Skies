@@ -30,7 +30,7 @@ public class CharmEventsMixin {
 			AccessoriesCompat.onCharmKeeping(player);
 	}
 
-	@Inject(method = "keepsakeCasket", at = @At(value = "INVOKE", target = "Ltwilightforest/util/TFItemStackUtils;sortInvForCasket(Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/core/NonNullList;", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
+	@Inject(method = "stockKeepsakeCasket", at = @At(value = "INVOKE", target = "Ltwilightforest/util/TFItemStackUtils;sortInvForCasket(Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/core/NonNullList;", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
 	private static void casketAccessories(Player player, CallbackInfo ci, boolean casketConsumed, Level level, BlockPos.MutableBlockPos pos, BlockPos immutablePos, FluidState fluidState, int damage, BlockState setState, SkullChestBlockEntity casket, String modifiedName, int casketCapacity, List<ItemStack> list) {
 		AccessoriesCompat.onKeepsakeCasket(player, casketCapacity, list);
 	}

@@ -23,7 +23,7 @@ import us.drullk.umbralskies.client.renderer.*;
 import us.drullk.umbralskies.item.AetherTrophyItem;
 import us.drullk.umbralskies.item.UmbralItems;
 
-@EventBusSubscriber(value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(value = Dist.CLIENT)
 public class UmbralClient {
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
@@ -64,7 +64,7 @@ public class UmbralClient {
 		AccessoriesRendererRegistry.registerRenderer(UmbralItems.SUN_SPIRIT_TROPHY.get(), AccessoriesHeadRenderer::new);
 	}
 
-	@EventBusSubscriber(value = Dist.CLIENT, bus = EventBusSubscriber.Bus.GAME)
+	@EventBusSubscriber(value = Dist.CLIENT)
 	public static class Events {
 		@SubscribeEvent
 		public static void renderLiving(RenderLivingEvent.Pre<?, ?> event) {

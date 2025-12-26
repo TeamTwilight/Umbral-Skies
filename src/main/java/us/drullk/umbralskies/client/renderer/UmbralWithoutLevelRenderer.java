@@ -17,7 +17,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import twilightforest.TwilightForestMod;
-import twilightforest.client.event.ClientEvents;
+import twilightforest.client.event.ClientGameEvents;
 import twilightforest.config.TFConfig;
 import us.drullk.umbralskies.UmbralSkies;
 import us.drullk.umbralskies.item.UmbralItems;
@@ -80,7 +80,7 @@ public class UmbralWithoutLevelRenderer extends BlockEntityWithoutLevelRenderer 
 
             poseStack.translate(0.5f, 0.5f, 0);
             poseStack.mulPose(Axis.XP.rotationDegrees(30));
-            poseStack.mulPose(Axis.YN.rotationDegrees(TFConfig.rotateTrophyHeadsGui && !Minecraft.getInstance().isPaused() ? ClientEvents.time % 360 : -45));
+            poseStack.mulPose(Axis.YN.rotationDegrees(TFConfig.rotateTrophyHeadsGui && !Minecraft.getInstance().isPaused() ? ClientGameEvents.time % 360 : -45));
             poseStack.translate(-0.5f, -0.25f, -0.5f);
         }
 

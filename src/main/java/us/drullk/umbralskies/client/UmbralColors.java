@@ -14,7 +14,7 @@ import twilightforest.item.ArcticArmorItem;
 import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.item.UmbralItems;
 
-@EventBusSubscriber(value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(value = Dist.CLIENT)
 public class UmbralColors {
 	@SubscribeEvent
 	public static void blockColors(RegisterColorHandlersEvent.Block event) {
