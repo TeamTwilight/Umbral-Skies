@@ -25,7 +25,7 @@ public class UmbralRecipes extends RecipeProvider {
 	@Override
 	protected void buildRecipes(RecipeOutput recipeOutput) {
 		ShapedRecipeBuilder
-			.shaped(RecipeCategory.DECORATIONS, UmbralBlocks.SKYROOT_BANISTER.get())
+			.shaped(RecipeCategory.DECORATIONS, UmbralBlocks.SKYROOT_BANISTER.get(), 3)
 			.pattern("___")
 			.pattern("| |")
 			.define('_', AetherBlocks.SKYROOT_SLAB.get())

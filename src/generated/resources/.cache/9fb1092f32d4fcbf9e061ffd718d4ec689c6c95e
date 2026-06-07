@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-31T20:30:36.844869783	Recipes
+// 1.21.1	2026-06-06T19:01:16.302238	Recipes
 76daffe3a726e2f6ca49cc5f17a4008862bb13c1 data/minecraft/advancement/recipes/building_blocks/hollow_golden_oak_log_from_golden_oak_log_stonecutting.json
 a4f287625c1048b4682dd506b60c79c0907b6e75 data/minecraft/advancement/recipes/building_blocks/hollow_skyroot_log_from_skyroot_log_stonecutting.json
 d75c0e1d7ad85ad7d6d10e2607a2b0d9a1612533 data/minecraft/recipe/hollow_golden_oak_log_from_golden_oak_log_stonecutting.json
@@ -18,6 +18,6 @@ c241c58ccb117e898f7a36c90309f398bb50313d data/umbral_skies/recipe/arctic_gloves.
 eb3e4564730a39d97896c2f765ee5340d0c86025 data/umbral_skies/recipe/ironwood_gloves.json
 778e06078e12107b5532d165ecb26fd79765e92d data/umbral_skies/recipe/knightmetal_gloves.json
 8fe5c9046fbc803b514a3cbac8ba66029e95b679 data/umbral_skies/recipe/naga_gloves.json
-8604893d3ca8c1a3112691e449893c0a1c4f5464 data/umbral_skies/recipe/skyroot_banister.json
+b14374721e192dc3389a183181be7b726936a026 data/umbral_skies/recipe/skyroot_banister.json
 a0caddf0b7abbd49f3ce9f72af053565c36d3976 data/umbral_skies/recipe/steeleaf_gloves.json
 d9b18642b6fc7180d497acc6382a2fae339e7bee data/umbral_skies/recipe/yeti_gloves.json
